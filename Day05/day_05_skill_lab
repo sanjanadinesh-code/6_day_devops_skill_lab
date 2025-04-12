@@ -1,0 +1,66 @@
+Day 5: Kubernetes - Orchestrating Containers
+
+The Challenges of Raw Containers:
+
+Lack of Auto-Scaling:
+Containers, by themselves, don't automatically adjust to traffic changes.
+Scale-up: Increasing resources when traffic rises.
+Vertical scaling: Upgrading the server's hardware (CPU, RAM).
+Horizontal scaling: Adding more servers.
+Scale-down: Reducing resources when traffic decreases.
+No Load Balancing:
+Containers don't distribute traffic evenly across multiple instances.
+Downtime and Lack of Self-Healing:
+If a container fails, the application goes down.
+Containers don't automatically restart or recover.
+Introducing Kubernetes (K8s): Container Orchestration:
+
+Kubernetes is a tool that manages containers, solving the problems mentioned above.
+It automates application deployment, scaling, and management.
+Key Kubernetes Features:
+Orchestration: Centralized container management.
+Auto-Scaling: Automatic adjustment of resources.
+Load Balancing: Distributing traffic across containers.
+Self-Healing: Automatic container restarts and recovery.
+Kubernetes is platform-independent (works on any cloud or on-premises).
+Kubernetes automation is defined in YAML files (manifests).
+Kubernetes Cluster Architecture:
+
+Cluster: A group of nodes that run applications.
+Node: A server (instance).
+Master Node: The control plane, managing the cluster.
+Worker Node: Where applications are deployed.
+A cluster requires at least one master node and one worker node.
+Cluster Types:
+On-Premises: Self-managed clusters.
+Cloud-Managed (e.g., EKS on AWS): Managed by cloud providers.
+Master Node Components:
+
+API Server: The front-end, handling all cluster requests.
+ETCD: A distributed database storing cluster data.
+Controllers: Monitor application health and maintain desired state.
+Scheduler: Assigns pods to nodes.
+Worker Node Components:
+
+Kubelet: An agent that manages pods on the node.
+Container Runtime (e.g., Docker): Manages container lifecycle.
+Kube-Proxy: Handles network traffic.
+Kubernetes Concepts:
+
+Pod: The smallest deployable unit in Kubernetes, containing one or more containers.
+YAML Manifest Structure:
+
+apiVersion: Defines the Kubernetes API version.
+kind: Defines the type of object (e.g., Pod).
+metadata: Contains object metadata (name, labels).
+spec: Defines the desired state of the object.
+Kubernetes Commands (kubectl):
+
+kubectl apply -f pod.yaml: Deploys a pod using a YAML file.
+kubectl get pods: Lists pods.
+kubectl get pods -o wide: Lists pods with detailed information.
+kubectl describe pod sample-pod: Provides detailed information about a pod.
+Resource Units:
+
+1 CPU = 1000 millicores (mi)
+1 GB = 1024 Megabytes (MB)
