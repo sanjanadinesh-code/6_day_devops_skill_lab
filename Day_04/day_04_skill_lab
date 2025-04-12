@@ -1,0 +1,65 @@
+Day 4: Docker and Deployment Environments
+
+1. Setting up a Linux Instance and Docker:
+
+Launching an Instance:
+We started by launching a Linux instance (likely on a cloud platform like AWS).
+We used PuTTY to connect to this instance.
+Becoming Root:
+sudo su: This command elevated our user privileges to root, allowing us to install software.
+Installing Docker:
+yum install docker -y: This command installed Docker on the Linux instance using the yum package manager. The -y flag automatically confirmed the installation.
+docker --version: Checks the installed docker version.
+service docker status: Check the status of the docker service.
+service docker start: Starts the docker service.
+Docker Basics:
+We learned about Docker's core components: images and containers.
+2. Deployment Environments:
+
+Development Environment (Dev):
+This is where developers write and test code.
+It's used to verify the minimum functionality of the application.
+Testing Environment (Test):
+This is where the quality assurance (QA) team tests the application.
+They run functional, non-functional, performance, and load tests.
+User Acceptance Testing (UAT):
+This is where a prototype of the application is shown to customers or stakeholders.
+It's used to get feedback before the product is released.
+Production Environment (Prod):
+This is where the application is deployed for end-users to access.
+3. Docker Containers and Images:
+
+Container:
+A container is a lightweight, isolated environment (like a virtual machine) where an application runs.
+Dockerfile:
+A Dockerfile is a text file with instructions on how to build a Docker image.
+Dockerfile Instructions:
+FROM: Specifies the base image. (Required as the first instruction)
+COPY: Copies files from the local machine into the image.
+ADD: Similar to COPY, but can also download files from URLs.
+RUN: Executes commands inside the image to install packages or dependencies.
+.dockerignore: Used to exclude files and folders from being copied into the image.
+CMD: Specifies the default command to run when the container starts.
+ENTRYPOINT: Specifies the main command to run; unlike CMD, it doesn't allow runtime arguments.
+EXPOSE: Exposes a port from the container to the host.
+ENV: Sets environment variables inside the container.
+USER: Sets the user to run commands as inside the container.
+Docker Image:
+A Docker image is a template that contains everything needed to run an application (code, dependencies, libraries, configuration).
+"Build once, run anywhere" is a key concept.
+Docker Hub:
+Docker Hub is a registry (a library) for storing and sharing Docker images.
+4. Docker Commands:
+
+Container Management:
+docker create <image> <command>: Creates a container from an image.
+Example: docker create ubuntu /bin/bash
+docker ps -a: Lists all containers (running and stopped).
+docker start <container_id_or_name>: Starts a stopped container.
+docker ps: Lists running containers.
+docker create -it --name <container_name> <image> <command>: Creates an interactive container with a name.
+-i: Interactive.
+-t: Terminal.
+docker exec -it <container_name> <command>: Executes a command inside a running container.
+Example: docker exec -it webserver /bin/bash
+exit: Exits the container's shell.
