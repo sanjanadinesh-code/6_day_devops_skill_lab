@@ -1,0 +1,59 @@
+Okay, let's refine Day 6's Kubernetes concepts into a clear and organized summary:
+
+Day 6: Kubernetes Namespaces, ReplicaSets, Deployments, Services, and Monitoring
+
+1. Namespaces:
+
+Purpose: To divide a Kubernetes cluster into isolated environments.
+Use Case: Managing multiple teams or applications within a single cluster.
+Default Namespaces:
+default: Automatically created; used for default Kubernetes resources (pods, deployments).
+kube-node-lease: Used by the master node to check node health.
+kube-public: Resources accessible to anyone.
+kube-system: Holds system-level resources (metric server, coredns).
+Important Note: Production applications should not be deployed in the default namespace.
+Creating Custom Namespaces:
+kubectl create ns <namespace-name>
+Viewing Resources in a Namespace:
+kubectl get all -n kube-system
+2. Pod Challenges and Solutions:
+
+Downtime: If a pod goes down, the application is unavailable.
+Solution: Use ReplicaSets or Deployments to ensure pod availability.
+Dynamic IP Addresses: Pod IP addresses change when pods are restarted.
+Solution: Use Services to create stable, static URLs for pods.
+Data Loss: Data is lost when a pod is deleted.
+Solution: Implement volumes to persist data.
+3. ReplicaSets:
+
+Purpose: To maintain a specified number of pod replicas running at all times.
+Functionality: Ensures the desired state matches the actual state.
+Deployment:
+kubectl apply -f rs.yaml
+Limitations:
+Does not support rolling updates or rollbacks.
+In real world applications, deployments are prefered.
+4. Deployments:
+
+Purpose: To manage application deployments, including updates and rollbacks.
+Hierarchy: Deployments manage ReplicaSets, which manage pods.
+Functionality: Provides declarative updates for Pods and ReplicaSets.
+5. Services:
+
+Purpose: To expose applications running in pods to the network.
+Service Types:
+ClusterIP: Exposes the service on an internal IP within the cluster (accessible only within the cluster).
+NodePort: Exposes the service on a static port on each node's IP (accessible from outside the cluster).
+LoadBalancer: Creates an external load balancer to distribute traffic to the service (typically used in cloud environments).
+Focus: LoadBalancer services are often implemented for external access.
+6. Monitoring:
+
+Purpose: To gain visibility into application and cluster performance.
+Benefits:
+Detecting application issues.
+Monitoring resource usage (CPU, memory).
+Tracking pod, node, and cluster health.
+Tools:
+Prometheus: A time-series database (TSDB) that collects metrics.
+Grafana: A visualization tool for creating monitoring dashboards.
+Workflow: Prometheus collects data and sends it to Grafana for visualization.
