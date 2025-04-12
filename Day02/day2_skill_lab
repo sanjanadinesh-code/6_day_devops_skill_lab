@@ -1,0 +1,36 @@
+Day 2: Learning the Basics of Linux
+What We Learned:
+
+We spent today learning how to tell Linux what to do using simple commands. Linux is used a lot for servers and cloud stuff, so knowing these commands is super important for DevOps.
+
+Simple Commands We Used:
+
+Finding Our Way Around:
+
+pwd: "Where am I right now?" (Shows the current folder)
+ls: "What's in this folder?" (Lists files and folders)
+ls -l: "Show me more details." (Lists files with extra info)
+cd <folder>: "Go into this folder." (Changes to another folder)
+cd ..: "Go back one folder."
+mkdir <folder>: "Make a new folder."
+rmdir <folder>: "Delete an empty folder."
+touch <file>: "Make a new empty file."
+rm <file>: "Delete a file."
+rm -r <folder>: "Delete a folder and everything inside it." (Be careful!)
+Looking at and Changing Files:
+
+cat <file>: "Show me what's inside this file."
+more <file> / less <file>: "Show me the file one page at a time."
+nano <file>: "Let me edit this file." (Easy text editor)
+vi <file>: "Let me edit this file." (More advanced editor)
+Other Useful Things:
+
+chmod: "Change who can use this file."
+clear: "Clean the screen."
+history: "Show me what commands I typed before."
+man <command>: "Show me how to use this command." (Like a help manual)
+whoami: "Who am I logged in as?"
+uname -a: "Tell me about this computer."
+What We Can Do Now:
+
+We can now move around files and folders, look at files, and change them using simple commands. This is like learning the basic words to talk to a computer, which is really important for working with servers.
